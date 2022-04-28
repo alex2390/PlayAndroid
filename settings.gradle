@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "PlayAndroid"
+include ':app'
+//include ':version-plugin'
+includeBuild("version-plugin")
+include ':lib_base'
+include ':lib_widget'
+include ':lib_common'
