@@ -1,14 +1,15 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'com.rjw.plugin'
+
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.rjw.libbase"
+//        applicationId "com.rjw.libbase"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -31,6 +32,12 @@ android {
         jvmTarget = '1.8'
     }
 }
+android {
+    viewBinding{
+        enabled = true
+    }
+}
+
 import com.rjw.plugin.*
 
 dependencies {
@@ -47,13 +54,48 @@ dependencies {
     api(Dep.Kotlin.Kotlin)
     api(Dep.Kotlin.CoroutinesCore)
     api(Dep.Kotlin.CoroutinesAndroid)
+    api(Dep.Kotlin.Coil)
 
     /**JetPack*/
     api(Dep.JetPack.LifecycleViewModel)
     api(Dep.JetPack.LifecycleLiveData)
     api(Dep.JetPack.LifecycleRuntime)
+
     //api DepsJetPack.LifecycleExtensions
     api(Dep.JetPack.LifecycleRuntimeKtx)
     api(Dep.JetPack.LifecycleViewModelKtx)
     api(Dep.JetPack.LifecycleViewModelSavedState)
+    api(Dep.JetPack.LifecycleService)
+
+    //ktx
+    api(Dep.JetPack.ActivityKtx)
+    api(Dep.JetPack.FragmentKtx)
+    api(Dep.JetPack.KoinAndroid)
+
+    //navigation
+    api(Dep.JetPack.NavigationFragment)
+    api(Dep.JetPack.NavigationUi)
+
+
+
+
+
+    //google
+    api(Dep.Google.GoogleGson)
+
+    //okhttp
+    api(Dep.OkHttp.Retrofit)
+    api(Dep.OkHttp.RetrofitConverter)
+    api(Dep.OkHttp.Core)
+    api(Dep.OkHttp.Logging)
+
+    //third part
+    api(Dep.ThirdPart.Banner)
+
+
+
+
+
+
+
 }

@@ -3,6 +3,9 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        // for banner
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+
     }
 }
 dependencyResolutionManagement {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PlayAndroid</string>
+    <string name="label_home">label_home</string>
 </resources>
