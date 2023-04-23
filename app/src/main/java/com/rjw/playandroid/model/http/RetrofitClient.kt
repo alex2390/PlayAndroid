@@ -1,13 +1,11 @@
 package com.rjw.playandroid.model.http
 
-import android.app.PendingIntent.getService
 import android.util.Log
-import com.rjw.playandroid.model.http.api.PlayApi
+import com.rjw.playandroid.model.http.api.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.AbstractExecutorService
 import java.util.concurrent.TimeUnit
 
 /**
@@ -21,7 +19,7 @@ object RetrofitClient {
 
 
     val service by lazy {
-        getService(PlayApi::class.java)
+        getService(ApiService::class.java)
     }
     private val myOkHttpClient = OkHttpClient.Builder()
         .callTimeout(10, TimeUnit.SECONDS)

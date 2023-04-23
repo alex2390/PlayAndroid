@@ -92,6 +92,10 @@ dependencies {
     //third part
     api(Dep.ThirdPart.Banner)
 
+    api(Dep.JetPack.Paging)
+
+
+
 
 
 

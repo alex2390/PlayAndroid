@@ -116,6 +116,9 @@ object Dep {
         const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.navVersion}"
         const val NavigationUi = "androidx.navigation:navigation-ui-ktx:${Version.navVersion}"
 
+        const val Paging = "androidx.paging:paging-runtime:3.1.1"
+
+
 
 
 
