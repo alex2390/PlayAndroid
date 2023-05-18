@@ -1,5 +1,6 @@
 package com.rjw.playandroid.model.paging
 
+import android.annotation.SuppressLint
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.rjw.playandroid.model.bean.Article
@@ -13,18 +14,18 @@ import com.rjw.playandroid.model.http.api.ApiService
  */
 class HomeArticlePagingSource(private val service: ApiService):  PagingSource<Int, Article>() {
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
-        return null
+        return 1
     }
+    @SuppressLint("SuspiciousIndentation")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         return try {
             val page = params.key ?: 1
             val nextPageNumber = params.key ?: 0
             val response = service.getArticles(nextPageNumber)
 
-            val data = response.data?: emptyList()
+            val data = response.data?.datas?: emptyList()
             val prevKey = if (page > 1) page - 1 else null
             val nextKey = if (data.isNotEmpty()) page + 1 else null
-
                 LoadResult.Page(
                     data =data,
                     prevKey = prevKey,

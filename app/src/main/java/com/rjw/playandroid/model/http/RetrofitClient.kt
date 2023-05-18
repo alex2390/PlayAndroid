@@ -28,17 +28,15 @@ object RetrofitClient {
         .writeTimeout(10, TimeUnit.SECONDS)
         .retryOnConnectionFailure(true)
         .followRedirects(false)//不处理重定向
-        .addInterceptor(HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
-            override fun log(message: String) {
-                Log.d(TAG, "log:$message")
-            }
-        }).setLevel(HttpLoggingInterceptor.Level.BODY))
+        .addInterceptor(HttpLoggingInterceptor {
+                message -> Log.d(TAG, "log:$message")
+        }.setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
 
     private var mRetrofit: Retrofit? =null
 
-    fun <T>getService(serviceClass: Class<T>):T?{
+    private fun <T>getService(serviceClass: Class<T>):T?{
         if (mRetrofit==null){
             mRetrofit =Retrofit.Builder()
                 .baseUrl(UrlConstants.BASE_URL)

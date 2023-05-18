@@ -118,6 +118,10 @@ object Dep {
 
         const val Paging = "androidx.paging:paging-runtime:3.1.1"
 
+        const val SwipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+
+
 
 
 

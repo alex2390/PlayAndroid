@@ -3,6 +3,7 @@ package com.rjw.playandroid.model.http.api
 import androidx.paging.PagingData
 import com.rjw.base.BaseData
 import com.rjw.playandroid.model.bean.Article
+import com.rjw.playandroid.model.bean.ArticleData
 import com.rjw.playandroid.model.bean.Banner
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -28,7 +29,7 @@ interface ApiService {
      * @param pageNum :页码
      */
     @GET("article/list/{pageNum}/json")
-    suspend fun getArticles(@Path("pageNum") pageNum: Int): BaseData<List<Article>>
+    suspend fun getArticles(@Path("pageNum") pageNum: Int): BaseData<ArticleData>
 
 
 

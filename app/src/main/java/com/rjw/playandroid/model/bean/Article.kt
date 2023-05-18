@@ -10,5 +10,6 @@ data class Article(
     val niceDate:String?=null,
     val title:String?=null,
     val link:String?=null,
-    val superChapterName:String?=null
+    val superChapterName:String?=null,
+    val id:Int = 0
 )
