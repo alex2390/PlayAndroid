@@ -31,6 +31,12 @@ interface ApiService {
     @GET("article/list/{pageNum}/json")
     suspend fun getArticles(@Path("pageNum") pageNum: Int): BaseData<ArticleData>
 
+    /**
+     * 置顶文章
+     * https://www.wanandroid.com/article/top/json
+     */
 
+    @GET("article/top/json")
+    suspend fun topArticles(): BaseData<List<Article>?>
 
 }
