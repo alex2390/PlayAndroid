@@ -3,6 +3,7 @@ package com.rjw.playandroid.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -24,7 +25,6 @@ class HomeArticleAdapter:PagingDataAdapter<Article,HomeArticleAdapter.ViewHolder
             override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return  oldItem.id ==newItem.id
             }
-
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return oldItem == newItem
             }
@@ -37,7 +37,11 @@ class HomeArticleAdapter:PagingDataAdapter<Article,HomeArticleAdapter.ViewHolder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding?.tvTitle?.text=getItem(position)?.title
+        val itemData = getItem(position)
+        holder.binding?.tvArticleTitle?.text=itemData?.title
+        holder.binding?.tvArticleTop?.visibility = if (itemData?.isTop==true) View.VISIBLE else View.GONE
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

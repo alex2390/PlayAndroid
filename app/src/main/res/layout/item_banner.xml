@@ -8,6 +8,13 @@
     android:layout_height="wrap_content"
     >
             <com.youth.banner.Banner
+                app:banner_indicator_gravity="center"
+                app:banner_indicator_normal_color="@color/Grey300"
+                app:banner_indicator_selected_color="@color/white"
+                app:banner_indicator_height="@dimen/dp_20"
+                app:banner_indicator_space="@dimen/dp_20"
+                app:banner_indicator_normal_width="@dimen/dp_10"
+                app:banner_indicator_selected_width="@dimen/dp_10"
                 app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/home_banner"
                 android:layout_width="match_parent"

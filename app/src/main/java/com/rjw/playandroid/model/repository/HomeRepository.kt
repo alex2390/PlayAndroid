@@ -7,9 +7,8 @@ import com.rjw.base.BaseData
 import com.rjw.base.BaseRepository
 import com.rjw.playandroid.model.bean.Article
 import com.rjw.playandroid.model.bean.Banner
-import com.rjw.playandroid.model.http.RetrofitClient
 import com.rjw.playandroid.model.http.RetrofitClient.service
-import com.rjw.playandroid.model.http.api.ApiService
+import com.rjw.playandroid.model.http.api.ApiHelperImpl
 import com.rjw.playandroid.model.paging.HomeArticlePagingSource
 import kotlinx.coroutines.flow.Flow
 

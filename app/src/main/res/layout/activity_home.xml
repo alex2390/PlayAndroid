@@ -37,7 +37,7 @@
             app:itemIconTint="@drawable/nav_item_color_state"
             app:itemTextColor="@drawable/nav_item_color_state"
             app:layout_behavior="com.rjw.libwidget.behavior.BottomNavigationBehavior"
-            app:menu="@menu/menu_home"
+            app:menu="@menu/menu_bottom_tab"
             />
 
 <!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->

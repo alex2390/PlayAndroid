@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rjw.playandroid.R
 import com.rjw.playandroid.databinding.ItemBannerBinding
 import com.rjw.playandroid.model.bean.Banner
+import com.youth.banner.indicator.CircleIndicator
 import org.koin.core.KoinApplication.Companion.init
 
 /**
@@ -32,7 +33,13 @@ class BannerAdapter : RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
-        holder.binding?.homeBanner?.setAdapter( HomeBannerAdapter(dataList))
+        holder.binding?.homeBanner?.apply {
+            setAdapter( HomeBannerAdapter(dataList))
+            indicator = CircleIndicator(context)
+
+        }
+
+
 
 
     }
