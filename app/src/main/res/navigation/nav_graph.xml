@@ -11,5 +11,9 @@
         android:id="@+id/mineFragment"
         android:name="com.rjw.playandroid.ui.me.MineFragment"
         />
+    <fragment
+        android:id="@+id/squareFragment"
+        android:name="com.rjw.playandroid.ui.square.SquareFragment"
+        />
 
 </navigation>

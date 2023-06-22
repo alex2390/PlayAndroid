@@ -1,7 +1,9 @@
 package com.rjw.playandroid.di
 
 import com.rjw.playandroid.model.repository.HomeRepository
+import com.rjw.playandroid.model.repository.SquareRepository
 import com.rjw.playandroid.ui.home.HomeViewModel
+import com.rjw.playandroid.ui.square.SquareViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,15 +14,19 @@ import org.koin.dsl.module
  *
  */
 object KoinModule {
-
-    private val viewModelModule = module {
+    private val homeViewModelModule = module {
         viewModel { HomeViewModel(get()) }
-    }
-
-    private val repositoryModule = module {
         single { HomeRepository() }
     }
-    val appModule= listOf(viewModelModule, repositoryModule)
+    private val squareViewModelModule = module {
+        viewModel { SquareViewModel(get()) }
+        single { SquareRepository() }
+    }
+
+    val appModule = listOf(
+        homeViewModelModule,
+        squareViewModelModule
+    )
 
 }
 

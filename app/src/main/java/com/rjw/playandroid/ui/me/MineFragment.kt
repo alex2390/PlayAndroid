@@ -14,10 +14,8 @@ import com.rjw.playandroid.databinding.FragmentMeBinding
  */
 class MineFragment : BaseBindingFragment<FragmentMeBinding>({ FragmentMeBinding.inflate(it) }) {
     companion object {
-        private const val TAG = "HomeFragment"
+        private const val TAG = "MineFragment"
     }
-
-
 
     override fun initData(savedInstanceState: Bundle?) {
     }

@@ -1,40 +1,17 @@
 package com.rjw.playandroid
 
-import android.app.Activity
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.annotation.IdRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import android.view.ViewGroup
+import androidx.core.view.updateLayoutParams
 import androidx.navigation.fragment.NavHostFragment
-import coil.util.Logger
-import com.google.android.material.navigation.NavigationView
 import com.rjw.base.BaseActivity
-import com.rjw.base.LoadUiIntent
 import com.rjw.libcommon.util.LogUtil
-import com.rjw.libwidget.behavior.BottomNavigationBehavior
 import com.rjw.playandroid.databinding.ActivityHomeBinding
-import com.rjw.playandroid.ui.adapter.HomeBannerAdapter
-import com.rjw.playandroid.ui.home.HomeIntent
-import com.rjw.playandroid.ui.home.HomeState
-import com.rjw.playandroid.ui.home.HomeViewModel
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.map
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomePage : BaseActivity<ActivityHomeBinding>() {
 
-
-
     companion object {
-        private const val TAG = "MainActivity"
+        private const val TAG = "HomePage"
 
     }
 
@@ -53,14 +30,13 @@ class HomePage : BaseActivity<ActivityHomeBinding>() {
                 }
                 R.id.tab_square
                 ->{
-                    navHostFragment.navController.navigate(R.id.mineFragment)
+                    navHostFragment.navController.navigate(R.id.squareFragment)
                 }
                 else->{
                     navHostFragment.navController.navigate(R.id.homeFragment)
                 }
 
             }
-            Log.d(TAG,it.title.toString())
             true
         }
 
@@ -71,6 +47,9 @@ class HomePage : BaseActivity<ActivityHomeBinding>() {
 
     private fun initToolBar() {
         binding.toolbarLayout.toolbar.run {
+            updateLayoutParams<ViewGroup.LayoutParams> {
+                height =0
+            }
             title = getString(R.string.app_name)
             setSupportActionBar(this)
         }

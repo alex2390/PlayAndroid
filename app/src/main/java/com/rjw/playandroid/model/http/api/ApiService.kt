@@ -39,4 +39,11 @@ interface ApiService {
     @GET("article/top/json")
     suspend fun topArticles(): BaseData<List<Article>?>
 
+    /**
+     * 首页文章列表
+     * https://www.wanandroid.com/article/list/0/json
+     * @param pageNum :页码
+     */
+    @GET("user_article/list/{pageNum}/json")
+    suspend fun getUserArticles(@Path("pageNum") pageNum: Int): BaseData<ArticleData>
 }

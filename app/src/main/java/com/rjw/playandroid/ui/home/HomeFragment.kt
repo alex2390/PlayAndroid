@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rjw.base.BaseBindingFragment
 import com.rjw.base.LoadUiIntent
+import com.rjw.libcommon.util.LogUtil
 import com.rjw.playandroid.databinding.ActivityHomeBinding
 import com.rjw.playandroid.databinding.FragmentHomeBinding
 import com.rjw.playandroid.ui.adapter.BannerAdapter
@@ -36,8 +37,10 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>({ FragmentHomeBind
     }
 
     private val homeViewModel by viewModel<HomeViewModel>()
+
     //首页文章
     private val homeArticleAdapter = HomeArticleAdapter()
+
     //首页Banner
     private var homeBannerAdapter = BannerAdapter()
     private lateinit var homeAdapter: ConcatAdapter
@@ -47,8 +50,6 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>({ FragmentHomeBind
 
     override fun initView(view: View, savedInstanceState: Bundle?) {
         homeAdapter = ConcatAdapter(homeBannerAdapter, homeArticleAdapter)
-
-
         homeViewModel.sendUiIntent(HomeIntent.GetBanner)
         lifecycleScope.launch {
             homeViewModel.loadUiIntentFlow
@@ -56,8 +57,8 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>({ FragmentHomeBind
                 .collect {
                     when (it) {
                         is LoadUiIntent.Error -> toast(it.msg)
-                        is LoadUiIntent.ShowMainView -> toast("show main")
                         is LoadUiIntent.Loading -> toast("show loading")
+                        else -> {}
                     }
                 }
         }
@@ -76,7 +77,6 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>({ FragmentHomeBind
         initBanner()
         initArticle()
     }
-
     private fun initBanner() {
     }
 
@@ -94,7 +94,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>({ FragmentHomeBind
         lifecycleScope.launchWhenStarted {
             homeViewModel.getPagingData().collect {
                 homeArticleAdapter.submitData(it)
-                Log.d(TAG, "collect article")
+                LogUtil.d(TAG, "collect article")
             }
         }
     }
